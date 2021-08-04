@@ -18,8 +18,22 @@ body{
 ::-webkit-scrollbar-thumb { height: 50px; background-color: #c5c5c5; border-radius: 3px;}
 ::-webkit-scrollbar-corner { background-color: #c5c5c5;}
 ::-webkit-resizer { background-color: #c5c5c5;}
-.close_window{display: none;}
-.open_chat{
+.close_button{display: none;}
+.close_window{
+  animation: close_window 1s;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  min-height: 250px;
+  height: 95%;
+  max-height: 550px;
+  border-radius: .5rem;
+  overflow: hidden;
+  background-color: #fff;
+  transform: translate(-50%, 1000%);
+}
+.open_chat_button{
   position: absolute;
   padding: 5px 15px;
   top: 50%;
@@ -27,7 +41,16 @@ body{
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
-
+@keyframes close_window {
+  0%{
+    transform: translate(-50%, -50%);
+  }
+  100%{
+    transform: translate(-50%, 1000%);
+    opacity: 0;
+    display: none;
+  }
+}
 
 
 /* CHAT */
@@ -42,9 +65,18 @@ body{
   max-height: 550px;
   border-radius: .5rem;
   overflow: hidden;
+  background-color: #fff;
   box-shadow: 2px 2px 15px 5px #00000065;
+  animation: window_slide 1s;
 }
-
+@keyframes window_slide {
+  0%{
+    transform: translate(-50%, 1000%);
+  }
+  100%{
+  transform: translate(-50%, -50%);
+  }
+}
 /* BLUE RED DECORATIONS */
 .window__chat .chat_up_decoration{
   display: flex;
@@ -189,7 +221,7 @@ body{
 .m-last{
   background-color: #dbdbdb;
   border-radius: 10px;
-  animation: push_message 2s;
+  animation: push_message 3s;
 }
 @keyframes push_message {
   0%{
@@ -257,7 +289,12 @@ body{
   font-size: 14px;
   border: 1px #b1b6bb solid;
   border-radius: 3px;
+  padding: 5px;
  }
+.send__inputs textarea:focus{
+  border: 1px #767b81 solid;
+  outline: none;
+}
 .send__inputs button{
   margin: 5px 0;
   padding: 7px 18px;

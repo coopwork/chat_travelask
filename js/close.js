@@ -4,12 +4,12 @@ var windowChat = document.getElementById('window_chat')
 
 function closeChatWindow() {
   windowChat.className = 'close_window';
-  openChatButtonEl.className = 'open_chat';
+  openChatButtonEl.className = 'open_chat_button';
 }
 
 function openChatWindow() {
   windowChat.className = 'window__chat';
-  openChatButtonEl.className = 'close_window';
+  openChatButtonEl.className = 'close_button';
 }
 
 openChatButtonEl.addEventListener('click', openChatWindow)
